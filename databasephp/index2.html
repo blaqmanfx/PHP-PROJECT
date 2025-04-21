@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #8338ec;
+            --dark-color: #023047;
+            --light-color: #f8f9fa;
+            --danger-color: #e63946;
+            --success-color: #2a9d8f;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .user-greeting {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: var(--light-color);
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .user-greeting h3 {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .date-time {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 25px;
+            gap: 20px;
+        }
+        
+        .section {
+            flex: 1;
+            min-width: 300px;
+            padding: 0;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .section-content {
+            padding: 20px;
+        }
+        
+        .section h2 {
+            margin-top: 0;
+            color: var(--dark-color);
+            font-size: 22px;
+            font-weight: 600;
+        }
+        
+        .section p {
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+        
+        .logout {
+            text-align: center;
+            margin: 20px 0;
+            padding: 0 25px 20px;
+        }
+        
+        .btn-danger {
+            background: var(--danger-color);
+        }
+        
+        .btn-danger:hover {
+            background: #c1121f;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--dark-color);
+            color: white;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .section {
+                margin-bottom: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            Welcome to Your Dashboard
+        </header>
+        
+        <div class="user-greeting">
+            <h3>Hello, User!</h3>
+            <div class="date-time" id="current-date-time"></div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <img src="/api/placeholder/400/200" alt="Analytics Dashboard">
+                <div class="section-content">
+                    <h2>Analytics Overview</h2>
+                    <p>View detailed statistics and performance metrics for your account. Track growth and identify trends with our comprehensive analytics tools.</p>
+                    <button class="btn" onclick="alert('Analytics data loading soon!')">View Analytics</button>
+                </div>
+            </div>
+            
+            <div class="section">
+                <img src="/api/placeholder/400/200" alt="Project Management">
+                <div class="section-content">
+                    <h2>Project Management</h2>
+                    <p>Manage your ongoing projects, set milestones, and track progress. Collaborate with team members and meet deadlines efficiently.</p>
+                    <button class="btn" onclick="alert('Project management tools coming soon!')">Manage Projects</button>
+                </div>
+            </div>
+            
+            <div class="section">
+                <img src="/api/placeholder/400/200" alt="User Settings">
+                <div class="section-content">
+                    <h2>Account Settings</h2>
+                    <p>Update your profile information, change password, and manage notification preferences. Keep your account secure and up to date.</p>
+                    <button class="btn" onclick="alert('Settings panel will be available shortly!')">Account Settings</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="logout">
+            <a href="logout.php" class="btn btn-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="copyright">
+                    &copy; 2025 Your Company. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    
+</body>
+</html>
